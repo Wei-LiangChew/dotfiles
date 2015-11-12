@@ -14,4 +14,4 @@
 	default = simple
 
 [core]
-    editer = vim
+  editer = vim
