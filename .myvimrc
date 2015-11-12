@@ -71,6 +71,8 @@ syntax on
 " search
 set incsearch       " search as characters are entered
 set hlsearch        " highlight matches
+set ignorecase      " searches should not be case-sensitive
+set smartcase       " searches with uppercase characters will be case-sensitive
 nnoremap <leader><space> :nohlsearch<CR> " clear search highlighting with \+space
 
 " tabs/indentation
@@ -100,10 +102,11 @@ set matchtime=2     " tenths of a second for matching brackets to blink
 " colorscheme distinguished   " activate distinguished color theme (requires terminal to be on 256 colors
 " colorscheme github          " activate github color theme
 " colorscheme candycode       " activate candycode color theme
-colorscheme papercolor      " activate papercolor color theme
+colorscheme PaperColor      " activate papercolor color theme
 " colorscheme material-theme  " activate material-theme color theme
 " colorscheme monokai         " monokai color theme
 set background=dark
+set t_Co=256                  " set terminal to 256 colors
 
 " miscellanious utilities
 set scrolloff=10
