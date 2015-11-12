@@ -12,3 +12,6 @@
 	email = weiliang.chew@tinkerbox.com.sg
 [push]
 	default = simple
+
+[core]
+    editer = vim
