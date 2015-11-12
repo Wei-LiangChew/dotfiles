@@ -1,0 +1,140 @@
+" Configuration file for VIM
+
+" Automatic Installation for vim-plug (for plugins)
+
+" if empty(glob('~/.vim/autoload/plug.vim'))
+"   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+"     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+"   autocmd VimEnter * PlugInstall | source $MYVIMRC
+" endif
+
+call plug#begin('~/.vim/plugged')
+Plug 'ag.vim'                           " the silver surfer file search
+Plug 'ctrlp.vim'                        " ctrl-p for fuzzy file search
+Plug 'tpope/vim-rails'                  " rails specific stuff
+Plug 'tpope/vim-haml'                   " haml syntax highlighting
+Plug 'slim-template/vim-slim'           " slim syntax highlighting
+Plug 'kchmck/vim-coffee-script'         " CoffeeScript
+Plug 'surround.vim'                     " for changing matched syntax like parentheses
+Plug 'fugitive.vim'                     " git wrapper
+Plug 'scrooloose/nerdtree'              " project directory sidebar
+Plug 'tomtom/tcomment_vim'              " easier commenting
+Plug 'nathanaelkane/vim-indent-guides'  " indent guides
+Plug 'suan/vim-instant-markdown'        " markdown preview
+Plug 'tpope/vim-markdown'               " vim markdown runtime files
+Plug 'airblade/vim-gitgutter'           " git gutter
+
+" Plug 'altercation/solarized'            " solarized color theme
+" Plug 'chriskempson/vim-tomorrow-theme'  " tomorrow color theme
+" Plug 'quanganhdo/grb256'                " grb256 color theme
+" Plug 'Lokaltog/vim-distinguished'       " distinguished color theme
+" Plug 'ricardovaleriano/vim-github-theme'  " github color theme
+" Plug 'candycode.vim'                    " candy code color theme
+Plug 'NLKNguyen/papercolor-theme'       " papercolor color theme
+" Plug 'jdkanani/vim-material-theme'      " material-theme color theme
+" Plug 'sickill/vim-monokai'              " monokai color theme
+call plug#end()
+"
+" " vim-plug Configuration
+" let g:plug_threads = 1    " for vim without ruby
+"
+"
+" " AG Configuration
+"
+let g:ag_working_path_mode="r"
+"
+"
+" " Ctrlp Configuration
+let g:ctrlp_match_window = 'bottom,order:ttb'
+let g:ctrlp_switch_buffer = 0
+let g:ctrlp_working_path_mode = 0
+let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
+"
+"
+" " nerdtree configuration
+map <C-n> :NERDTreeToggle<CR>   " map nerdtree toggle to ctrl+n
+"
+"
+" " instant markdown configuration
+let g:instant_markdown_slow = 1   " markdown preview refresh only on timeout or write
+
+
+" solarized configuration for 256 terminal palette
+" let g:solarized_termcolors=256
+
+
+" Personal VIM Configuration
+
+" syntax
+syntax on
+
+" search
+set incsearch       " search as characters are entered
+set hlsearch        " highlight matches
+nnoremap <leader><space> :nohlsearch<CR> " clear search highlighting with \+space
+
+" tabs/indentation
+set tabstop=2       " number of visual spaces per TAB
+set softtabstop=2   " number of spaces in tab when editing
+set expandtab       " tabs are spaces
+set shiftwidth=2
+set shiftround
+set autoindent
+
+" split panes
+set splitbelow      " new split panes open below
+set splitright      " new split panes open to the right
+
+" display utilities
+set number          " show line numbers
+set numberwidth=5
+set ruler           " show cursor position at bottom right
+set showcmd         " show command in bottom bar
+set wrap            " wrap text
+set cursorline      " highlight current line
+set showmatch       " show matching brackets
+set matchtime=2     " tenths of a second for matching brackets to blink
+" colorscheme tomorrow        " activate tomorrow color theme
+" colorscheme solarized       " activate solarized color theme
+" colorscheme grb256          " activate grb256 color theme
+" colorscheme distinguished   " activate distinguished color theme (requires terminal to be on 256 colors
+" colorscheme github          " activate github color theme
+" colorscheme candycode       " activate candycode color theme
+colorscheme papercolor      " activate papercolor color theme
+" colorscheme material-theme  " activate material-theme color theme
+" colorscheme monokai         " monokai color theme
+set background=dark
+
+" miscellanious utilities
+set scrolloff=10
+set textwidth=80
+set colorcolumn=+1
+set noerrorbells
+set noswapfile
+nnoremap gV `[v`]
+
+autocmd BufWritePre * :%s/\s\+$//e  " remove trailing whitespace before saving
+"key map to insert new line before cursor (only works in gvim/macvim)
+nnoremap <leader><S-cr> O<Esc>
+"key map to insert new line after cursor
+nnoremap <leader><cr> o<Esc>
+
+
+" Mac Default VIM Configuration
+
+set modelines=0   " CVE-2007-2438
+
+set mouse=a
+
+" Normally we use vim-extensions. If you want true vi-compatibility
+" remove change the following statements
+
+set nocompatible  " Use Vim defaults instead of 100% vi compatibility
+set backspace=2   " more powerful backspacing
+
+" Don't write backup file if vim is being called by "crontab -e"
+au BufWrite /private/tmp/crontab.* set nowritebackup
+
+" Don't write backup file if vim is being called by "chpass"
+au BufWrite /private/etc/pw.* set nowritebackup
+
