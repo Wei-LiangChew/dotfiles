@@ -93,8 +93,6 @@ set numberwidth=5
 set ruler           " show cursor position at bottom right
 set showcmd         " show command in bottom bar
 set wrap            " wrap text
-set linebreak       " wrapped lines will only break at characters in the breakat
-set nolist          " disable list view (interferes with linebreak)
 set cursorline      " highlight current line
 set showmatch       " show matching brackets
 set matchtime=2     " tenths of a second for matching brackets to blink
@@ -112,8 +110,6 @@ set t_Co=256                  " set terminal to 256 colors
 
 " miscellanious utilities
 set scrolloff=10
-set textwidth=80        " set desired max characters in a line
-autocmd BufNewFile,BufRead * setlocal formatoptions=cql   " don't break long lines in insert mode (defaults to tcq)
 set colorcolumn=+1
 set noerrorbells
 set noswapfile
