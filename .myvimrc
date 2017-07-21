@@ -9,14 +9,12 @@
 " endif
 
 call plug#begin('~/.vim/plugged')
-Plug 'ag.vim'                           " the silver surfer file search
-Plug 'ctrlp.vim'                        " ctrl-p for fuzzy file search
+Plug 'mileszs/ack.vim'                  " the ack file search
+Plug 'ctrlpvim/ctrlp.vim'               " ctrl-p for fuzzy file search
 Plug 'tpope/vim-rails'                  " rails specific stuff
 Plug 'tpope/vim-haml'                   " haml syntax highlighting
 Plug 'slim-template/vim-slim'           " slim syntax highlighting
 Plug 'kchmck/vim-coffee-script'         " CoffeeScript
-Plug 'surround.vim'                     " for changing matched syntax like parentheses
-Plug 'fugitive.vim'                     " git wrapper
 Plug 'scrooloose/nerdtree'              " project directory sidebar
 Plug 'tomtom/tcomment_vim'              " easier commenting
 Plug 'nathanaelkane/vim-indent-guides'  " indent guides
@@ -37,13 +35,12 @@ call plug#end()
 "
 " " vim-plug Configuration
 " let g:plug_threads = 1    " for vim without ruby
-"
-"
-" " AG Configuration
-"
-let g:ag_working_path_mode="r"
-"
-"
+
+" Use Ag with ackvim
+if executable('ag')
+  let g:ackprg = 'ag'
+endif
+
 " " Ctrlp Configuration
 let g:ctrlp_match_window = 'bottom,order:ttb'
 let g:ctrlp_switch_buffer = 0
