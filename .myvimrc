@@ -109,6 +109,7 @@ set t_Co=256                  " set terminal to 256 colors
 set scrolloff=10
 set colorcolumn=+1
 set noerrorbells
+set visualbell
 set noswapfile
 nnoremap gV `[v`]
 
