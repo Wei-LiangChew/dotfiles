@@ -11,11 +11,15 @@ git clone git@github.com:Wei-LiangChew/dotfiles.git
 
 Note: might need to set up git SSH keys or other form of login in order to clone.
 
-2. Form the necessary symlinks for the configuration files to apply:
+2. Apply the configuration files:
 
-```
-ln dotfiles/.myvimrc .vimrc
-ln dotfiles/.gitcongfig .gitconfig
+```bash
+ln -s dotfiles/.myvimrc ~/.vimrc
+ln -s dotfiles/.gitignore_global ~/.gitignore_global
+ln -s dotfiles/.tmux.conf ~/.tmux.conf
+
+cp dotfiles/.gitconfig ~/.gitconfig
+# hard copy required to allow git to work in the `dotfiles` directory
 ```
 
 In the case of the `.gitconfig` file, you might have to delete any existing one. Compare before doing so to make sure you don't delete anything by mistake.
